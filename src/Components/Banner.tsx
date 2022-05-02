@@ -9,29 +9,29 @@ export default function Banner() {
   const getMovie = () => {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=Cars`
+        `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=Car`
       )
       .then((response: any) => {
         console.log(response);
         return setMovie(
-          <div>
-            <ItemCarousel
-              srcImg={`${response.data.results[0].backdrop_path}`}
-              name={`${response.data.results[0].original_title}`}
-              text={`${response.data.results[0].overview}`}
-            />
-          </div>
+          <Carousel>
+            {response.data.results.slice(0, 3).map((filme: any, id: number) => (
+              <Carousel.Item key={id} interval={1000}>
+                <ItemCarousel
+                  srcImg={`${filme.backdrop_path}`}
+                  name={`${filme.original_title}`}
+                  text={`${filme.overview}`}
+                />
+              </Carousel.Item>
+            ))}
+          </Carousel>
         );
       });
   };
-  
+
   useEffect(() => {
     getMovie();
   }, []);
 
-  return (
-    <Carousel>
-      <Carousel.Item interval={1000}>{movie}</Carousel.Item>
-    </Carousel>
-  );
+  return <div>{movie}</div>;
 }

@@ -1,4 +1,5 @@
-import { Carousel } from "react-bootstrap";
+import { Carousel, Col, Container, Image } from "react-bootstrap";
+import { ContentArea, HideArea } from "../styles";
 
 type IconProps = {
   text: string;
@@ -8,16 +9,23 @@ type IconProps = {
 
 export default function ItemCarousel(props: IconProps) {
   return (
-    <div>
-      <img
-        className="d-block w-100"
-        src={`https://image.tmdb.org/t/p/w500/${props.srcImg}`}
-        alt="First slide"
-      />
-      <Carousel.Caption>
-        <h3>{props.name}</h3>
-        <p>{props.text}</p>
-      </Carousel.Caption>
-    </div>
+    <Container fluid>
+      <Col sm={12} md={12}>
+        <Image
+          fluid
+          className="w-100"
+          src={`https://image.tmdb.org/t/p/w500/${props.srcImg}`}
+          alt="First slide"
+        />
+      </Col>
+      <Col sm={12} md={12}>
+        <Carousel.Caption>
+          <ContentArea>
+            <h3>{props.name}</h3>
+            <HideArea>{props.text}</HideArea>
+          </ContentArea>
+        </Carousel.Caption>
+      </Col>
+    </Container>
   );
 }
