@@ -15,7 +15,7 @@ export default function SuggestMovies() {
         return setMovie(
           <Row>
             {response.data.results.slice(0, 4).map((filme: any, id: number) => (
-              <Col md={6} style={{marginTop: '10px'}}>
+              <Col md={6} key={id} style={{marginTop: '10px'}}>
                 <Card style={{ height: '100%', padding: '10px' }}>
                   <Card.Img
                     variant="top"

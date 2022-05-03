@@ -34,7 +34,7 @@ export default function MakingOf() {
             ></iframe>
           </Row>
           <Row>
-              <h2><i>Movie:</i> Rush (2013 film)</h2>
+              <h2><i>Movie:</i> Avengers Age of Ultron</h2>
           </Row>
         </Col>
         <Col md={4} style={{marginTop: '10px'}}>
