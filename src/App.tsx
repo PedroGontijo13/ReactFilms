@@ -1,6 +1,7 @@
 import Avaliations from "./Components/Avaliation";
 import Banner from "./Components/Banner";
 import Header from "./Components/Header";
+import MakingOf from "./Components/MakingOf";
 import SuggestMovies from "./Components/SuggestMovies";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Banner/>
       <SuggestMovies/>
       <Avaliations/>
+      <MakingOf/>
     </div>
   )
 }
