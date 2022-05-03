@@ -3,6 +3,12 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 export default function Avaliations() {
   return (
     <Container>
+        <Row>
+            <Col 
+          style={{marginTop: "10px"}}>
+                <h1>Avaliations:</h1>
+            </Col>
+        </Row>
       <Row>
         <Col style={{marginTop: '10px', marginBottom: '10px'}} md={4}>
           <Card>
