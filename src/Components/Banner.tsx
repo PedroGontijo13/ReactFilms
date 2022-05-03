@@ -14,7 +14,7 @@ export default function Banner() {
       .then((response: any) => {
         console.log(response);
         return setMovie(
-          <Carousel>
+          <Carousel fade>
             {response.data.results.slice(0, 3).map((filme: any, id: number) => (
               <Carousel.Item key={id} interval={1000}>
                 <ItemCarousel

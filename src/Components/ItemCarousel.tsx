@@ -13,7 +13,7 @@ export default function ItemCarousel(props: IconProps) {
       <Col sm={12} md={12}>
         <Image
           fluid
-          className="w-100"
+          className="w-100 p-3"
           src={`https://image.tmdb.org/t/p/w500/${props.srcImg}`}
           alt="First slide"
         />
