@@ -1,19 +1,26 @@
+import { Container } from "react-bootstrap";
 import Avaliations from "./Components/Avaliation";
 import Banner from "./Components/Banner";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import MakingOf from "./Components/MakingOf";
+import News from "./Components/News";
 import SuggestMovies from "./Components/SuggestMovies";
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Banner/>
-      <SuggestMovies/>
-      <Avaliations/>
-      <MakingOf/>
+      <Header />
+      <Container>
+        <Banner />
+        <SuggestMovies />
+        <Avaliations />
+        <MakingOf />
+        <News />
+        <Footer />
+      </Container>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

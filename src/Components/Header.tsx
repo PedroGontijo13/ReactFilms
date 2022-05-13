@@ -11,9 +11,9 @@ import {
 
 export default function Header() {
   return (
-    <header>
+    <header className="sticky-top">
       <Navbar bg="light" expand={false}>
-        <Container fluid>
+        <Container>
           <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
