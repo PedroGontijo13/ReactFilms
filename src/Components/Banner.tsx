@@ -33,5 +33,5 @@ export default function Banner() {
     getMovie();
   }, []);
 
-  return <div>{movie}</div>;
+  return <div id="Home">{movie}</div>;
 }

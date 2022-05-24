@@ -5,7 +5,7 @@ import godzilla from "../assets/godzilla.webp";
 export default function News() {
   return (
     <Container>
-      <Row>
+      <Row id="Curiosities">
         <h1>Curiosities:</h1>
       </Row>
       <Row>
@@ -23,12 +23,11 @@ export default function News() {
             his opinions on the 007 franchise anymore. In fact, he’s shared who
             he thinks should succeed Craig as Bond: Robert Pattinson.
           </Col>
-          <Col md={3}>
+          <Col md={3} id="About">
             <h1>About</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            officiis iure autem error officia ad voluptas aliquid. Sequi autem
-            adipisci repudiandae minus optio ducimus quaerat! Ipsum quibusdam ad
-            molestias magni.
+            React Films is a film portal that will provide information about
+            films and the films themselves. Developed by computer science
+            student: Pedro Tolentino Gontijo
           </Col>
         </Row>
       </Row>
@@ -51,7 +50,7 @@ export default function News() {
           </Col>
           <Col md={3}>
             <h1>CopyRigth</h1>
-            Pedro Tolentino Gontijo - Computer Science - WebDevlopment
+            Pedro Tolentino Gontijo - Computer Science - Web Development
           </Col>
         </Row>
       </Row>
