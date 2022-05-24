@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
@@ -24,7 +25,7 @@ export default function SuggestMovies() {
                   <Card.Body>
                     <Card.Title>{`${filme.original_title}`}</Card.Title>
                     <Card.Text>{`${filme.overview}`}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <ModalShow name={`${filme.original_title}`} image={`${filme.backdrop_path}`} content={`${filme.overview}`}/>
                   </Card.Body>
                 </Card>
               </Col>

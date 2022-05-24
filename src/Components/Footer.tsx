@@ -6,7 +6,7 @@ import { Footer1, FooterArea, IconsArea } from "../styles";
 export default function Footer() {
   return (
     <FooterArea>
-      <Footer1 className="footer mt-auto py-3 bg-light fixed-bottom">
+      <Footer1 className="footer mt-auto py-3 bg-light">
         <Container>
           <Row>
             <IconContext.Provider value={{ size: "2em" }}>

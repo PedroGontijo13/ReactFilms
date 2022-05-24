@@ -14,7 +14,7 @@ export default function Header() {
     <header className="sticky-top">
       <Navbar bg="light" expand={false}>
         <Container>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Brand href="#">ReactMovies</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
             id="offcanvasNavbar"

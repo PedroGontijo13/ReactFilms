@@ -33,5 +33,5 @@ export default function Banner() {
     getMovie();
   }, []);
 
-  return <Container fluid>{movie}</Container>;
+  return <div>{movie}</div>;
 }

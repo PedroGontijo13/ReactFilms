@@ -17,8 +17,8 @@ function App() {
         <Avaliations />
         <MakingOf />
         <News />
-        <Footer />
       </Container>
+      <Footer />
     </div>
   );
 }
