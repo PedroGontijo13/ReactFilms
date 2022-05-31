@@ -10,7 +10,7 @@ import SuggestMovies from "./Components/SuggestMovies";
 function App() {
   return (
     <div>
-      <Header />
+      <Header onFormSubmit={onFormSubmit}/>
       <Container>
         <Banner />
         <SuggestMovies />
@@ -21,6 +21,10 @@ function App() {
       <Footer />
     </div>
   );
+}
+
+function onFormSubmit(data: any) {
+  console.log(data.query)
 }
 
 export default App;
