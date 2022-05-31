@@ -33,9 +33,9 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
       )
       .then((response: any) => {
         return setMovie(
-          <Container>
+          <Container fluid>
             <Row>
-              <Carousel fade>
+              <Carousel>
                 {response.data.results
                   .slice(0, 3)
                   .map((filme: any, id: number) => (
@@ -51,9 +51,6 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                         <Card.Body>
                           <Card.Title>{filme.original_title}</Card.Title>
                           <Card.Text>{filme.overview}</Card.Text>
-                          <Button variant="primary" onClick={handleClose}>
-                            Close
-                          </Button>
                         </Card.Body>
                       </Col>
                     </Carousel.Item>
@@ -67,7 +64,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
 
   return (
     <header className="sticky-top">
-      <Navbar bg="light" expand={false}>
+      <Navbar bg="dark" variant="dark" expand={false}>
         <Container>
           <Navbar.Brand href="#">ReactMovies</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -134,9 +131,11 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        onClick={handleClose}
       >
         {movie}
+        <Button variant="primary" onClick={handleClose}>
+          Close
+        </Button>
       </Modal>
     </header>
   );

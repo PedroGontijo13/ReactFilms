@@ -1,4 +1,12 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    --bs-bg-opacity: 1;
+    background: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    color: #fff;
+  }
+`;
 
 export const ContentArea = styled.div`
   padding: 10px;
@@ -15,7 +23,9 @@ export const FooterArea = styled.div`
 `;
 
 export const Footer1 = styled.footer`
-  background-color: ;
+  --bs-bg-opacity: 1;
+  margin-top: 10px;
+  background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   padding-top: 3000px;
   @media only screen and (min-width: 2400px) {
     position: fixed;

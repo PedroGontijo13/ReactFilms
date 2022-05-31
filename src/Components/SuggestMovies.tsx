@@ -16,8 +16,8 @@ export default function SuggestMovies() {
         return setMovie(
           <Row>
             {response.data.results.slice(0, 4).map((filme: any, id: number) => (
-              <Col md={6} key={id} style={{marginTop: '10px'}}>
-                <Card style={{ height: '100%', padding: '10px' }}>
+              <Col md={6} key={id} style={{ marginTop: "10px" }}>
+                <Card bg="dark" style={{ height: "100%", padding: "10px" }}>
                   <Card.Img
                     variant="top"
                     src={`https://image.tmdb.org/t/p/w500/${filme.backdrop_path}`}
@@ -25,7 +25,11 @@ export default function SuggestMovies() {
                   <Card.Body>
                     <Card.Title>{`${filme.original_title}`}</Card.Title>
                     <Card.Text>{`${filme.overview}`}</Card.Text>
-                    <ModalShow name={`${filme.original_title}`} image={`${filme.backdrop_path}`} content={`${filme.overview}`}/>
+                    <ModalShow
+                      name={`${filme.original_title}`}
+                      image={`${filme.backdrop_path}`}
+                      content={`${filme.overview}`}
+                    />
                   </Card.Body>
                 </Card>
               </Col>
@@ -39,5 +43,12 @@ export default function SuggestMovies() {
     getMovie();
   }, []);
 
-  return <Container><Row><h1>Fight Movies:</h1></Row>{movie}</Container>;
+  return (
+    <Container>
+      <Row>
+        <h1>Fight Movies:</h1>
+      </Row>
+      {movie}
+    </Container>
+  );
 }
