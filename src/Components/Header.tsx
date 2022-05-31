@@ -12,12 +12,18 @@ import {
   Row,
   Col,
   Carousel,
+  Modal,
 } from "react-bootstrap";
 import { Link } from "react-scroll";
 
 export default function Header({ onFormSubmit }: any): JSX.Element {
   const [query, setQuery] = useState("");
   const [movie, setMovie] = useState<React.ReactElement<HTMLDivElement>>();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getMovie = (data: any) => {
     axios
@@ -35,24 +41,20 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                   .map((filme: any, id: number) => (
                     <Carousel.Item key={id} interval={1000}>
                       <Col>
-                        <Card>
-                          <Card.Img
-                            variant="top"
-                            src={
-                              "https://image.tmdb.org/t/p/w500/" +
-                              filme.backdrop_path
-                            }
-                          />
-                          <Card.Body>
-                            <Card.Title>
-                              {filme.original_title}
-                            </Card.Title>
-                            <Card.Text>
-                              {filme.overview}
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                          </Card.Body>
-                        </Card>
+                        <Card.Img
+                          variant="top"
+                          src={
+                            "https://image.tmdb.org/t/p/w500/" +
+                            filme.backdrop_path
+                          }
+                        />
+                        <Card.Body>
+                          <Card.Title>{filme.original_title}</Card.Title>
+                          <Card.Text>{filme.overview}</Card.Text>
+                          <Button variant="primary" onClick={handleClose}>
+                            Close
+                          </Button>
+                        </Card.Body>
                       </Col>
                     </Carousel.Item>
                   ))}
@@ -115,7 +117,11 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                   className="me-2"
                   aria-label="Search"
                 />
-                <Button variant="outline-primary" type="submit">
+                <Button
+                  variant="outline-primary"
+                  type="submit"
+                  onClick={handleShow}
+                >
                   Search
                 </Button>
               </Form>
@@ -123,7 +129,15 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      {movie}
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        onClick={handleClose}
+      >
+        {movie}
+      </Modal>
     </header>
   );
 }

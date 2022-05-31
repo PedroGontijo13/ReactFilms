@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
