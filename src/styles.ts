@@ -8,6 +8,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const Background1 = styled.div`
+  background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+`;
+
+export const Background2 = styled.div`
+  background-color: rgba(
+    var(--bs-secondary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+`;
+
 export const ContentArea = styled.div`
   padding: 10px;
 `;

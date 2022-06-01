@@ -15,7 +15,7 @@ export default function ModalShow(props: ModalProps) {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="light" onClick={handleShow}>
         See
       </Button>
 
@@ -25,19 +25,21 @@ export default function ModalShow(props: ModalProps) {
         backdrop="static"
         keyboard={false}
       >
-        <Card.Img
-          variant="top"
-          src={`https://image.tmdb.org/t/p/w500/${props.image}`}
-        />
-        <Modal.Header closeButton>
-          <Modal.Title>{props.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{props.content}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
+        <Card bg="secondary" style={{ height: "100%", padding: "10px" }}>
+          <Card.Img
+            variant="top"
+            src={`https://image.tmdb.org/t/p/w500/${props.image}`}
+          />
+          <Modal.Header closeButton>
+            <Modal.Title>{props.name}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{props.content}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Card>
       </Modal>
     </div>
   );

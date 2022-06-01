@@ -11,7 +11,7 @@ export default function Avaliations() {
         </Row>
       <Row>
         <Col style={{marginTop: '10px', marginBottom: '10px'}} md={4}>
-          <Card bg="dark">
+          <Card bg="secondary">
             <Card.Body>
               <Card.Title>Pedro Tolentino</Card.Title>
               <Card.Text>
@@ -23,7 +23,7 @@ export default function Avaliations() {
           </Card>
         </Col>
         <Col style={{marginTop: '10px', marginBottom: '10px'}} md={4}>
-          <Card bg="dark">
+          <Card bg="secondary">
             <Card.Body>
               <Card.Title>Pedro Tolentino</Card.Title>
               <Card.Text>
@@ -35,7 +35,7 @@ export default function Avaliations() {
           </Card>
         </Col>
         <Col style={{marginTop: '10px', marginBottom: '10px'}} md={4}>
-          <Card bg="dark">
+          <Card bg="secondary">
             <Card.Body>
               <Card.Title>Pedro Tolentino</Card.Title>
               <Card.Text>
