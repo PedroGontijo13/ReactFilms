@@ -13,21 +13,21 @@ export default function Footer() {
               <IconContext.Provider value={{ size: "2em" }}>
                 <Col className="d-flex justify-content-center">
                   <IconsArea>
-                    <a href="https://www.linkedin.com/in/pedro-tolentino-b08989204/">
+                    <a target="_blank" href="https://www.linkedin.com/in/pedro-tolentino-b08989204/">
                       <SiLinkedin />
                     </a>
                   </IconsArea>
                 </Col>
                 <Col className="d-flex justify-content-center">
                   <IconsArea>
-                    <a href="https://www.github.com/PedroGontijo13">
+                    <a target="_blank" href="https://www.github.com/PedroGontijo13">
                       <SiGithub />
                     </a>
                   </IconsArea>
                 </Col>
                 <Col className="d-flex justify-content-center">
                   <IconsArea>
-                    <a href="#">
+                    <a target="_blank" href="#">
                       <SiInstagram />
                     </a>
                   </IconsArea>

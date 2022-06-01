@@ -28,7 +28,7 @@ export const IconsArea = styled.div`
 `;
 
 export const FooterArea = styled.div`
-  @media only screen and (min-width: 2400px) {
+  @media only screen and (min-width: 4000px) {
     padding-top: 10rem;
   }
 `;
@@ -38,7 +38,7 @@ export const Footer1 = styled.footer`
   margin-top: 10px;
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   padding-top: 3000px;
-  @media only screen and (min-width: 2400px) {
+  @media only screen and (min-width: 4000px) {
     position: fixed;
     left: 0;
     bottom: 0;

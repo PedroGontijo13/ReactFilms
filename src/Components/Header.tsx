@@ -16,6 +16,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-scroll";
 import { Background1, Background2 } from "../styles";
+import logo from "../assets/logo.png"
 
 export default function Header({ onFormSubmit }: any): JSX.Element {
   const [query, setQuery] = useState("");
@@ -65,7 +66,16 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
     <header className="sticky-top">
       <Navbar bg="dark" variant="dark" expand={false}>
         <Container fluid>
-          <Navbar.Brand href="#">ReactMovies</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <img
+              alt=""
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
+            ReactFilms
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
             id="offcanvasNavbar"
