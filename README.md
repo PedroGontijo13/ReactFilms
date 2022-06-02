@@ -6,7 +6,7 @@ Maked with ReactJS, ViteJS, TypeScript, ReactBootsrap, ReactIcons, React-Router-
 
 How to use:
 
-1 - Download or fork the project;
+1 - Download or clone the project;
 
 2 - use in your terminal "yarn" this command will install the modules
 
