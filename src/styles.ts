@@ -6,6 +6,12 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     color: #fff;
   }
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #4d4d4d;
+  }
 `;
 
 export const Background1 = styled.div`

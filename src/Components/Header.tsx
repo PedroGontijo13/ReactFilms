@@ -9,7 +9,6 @@ import {
   FormControl,
   Button,
   Card,
-  Row,
   Col,
   Carousel,
   Modal,
@@ -30,8 +29,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
   const getMovie = (data: any) => {
     axios
       .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=" +
-          data.query
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${data.query}`
       )
       .then((response: any) => {
         return setMovie(
@@ -68,7 +66,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
         <Container fluid>
           <Navbar.Brand href="#">
             <img
-              alt=""
+              alt="ReactLogo"
               src={logo}
               width="30"
               height="30"
