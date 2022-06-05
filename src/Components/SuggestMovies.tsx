@@ -11,7 +11,7 @@ export default function SuggestMovies() {
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=fight`
       )
-      .then((response: any) => {
+      .then((response: { data: {results: [{ original_title: string, overview: string, backdrop_path: string}]}}) => {
         console.log(response);
         return setMovie(
           <Row>
