@@ -6,7 +6,11 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     color: #fff;
   }
+  div.offcanvas-top {
+    height: 5%;
+  }
   div.offcanvas {
+    padding-bottom: 200px !important;
     background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   }
 `;
