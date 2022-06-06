@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const CenterArea = styled.div`
+
+`
+
 export const Background1 = styled.div`
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 `;

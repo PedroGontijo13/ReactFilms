@@ -23,7 +23,7 @@ export default function Banner() {
                 },
                 id: number
               ) => (
-                <Carousel.Item key={id} interval={1000}>
+                <Carousel.Item key={id} interval={2000}>
                   <ItemCarousel
                     srcImg={`${filme.backdrop_path}`}
                     name={`${filme.original_title}`}
