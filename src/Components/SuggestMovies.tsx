@@ -11,29 +11,40 @@ export default function SuggestMovies() {
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=fight`
       )
-      .then((response: { data: {results: [{ original_title: string, overview: string, backdrop_path: string}]}}) => {
-        console.log(response);
+      .then((response: { data: { results: [] } }) => {
         return setMovie(
           <Row>
-            {response.data.results.slice(0, 4).map((filme: any, id: number) => (
-              <Col md={6} key={id} style={{ marginTop: "10px" }}>
-                <Card bg="secondary" style={{ height: "100%", padding: "10px" }}>
-                  <Card.Img
-                    variant="top"
-                    src={`https://image.tmdb.org/t/p/w500/${filme.backdrop_path}`}
-                  />
-                  <Card.Body>
-                    <Card.Title>{`${filme.original_title}`}</Card.Title>
-                    <Card.Text>{`${filme.overview}`}</Card.Text>
-                    <ModalShow
-                      name={`${filme.original_title}`}
-                      image={`${filme.backdrop_path}`}
-                      content={`${filme.overview}`}
+            {response.data.results.slice(0, 4).map(
+              (
+                filme: {
+                  original_title: string;
+                  overview: string;
+                  backdrop_path: string;
+                },
+                id: number
+              ) => (
+                <Col md={6} key={id} style={{ marginTop: "10px" }}>
+                  <Card
+                    bg="secondary"
+                    style={{ height: "100%", padding: "10px" }}
+                  >
+                    <Card.Img
+                      variant="top"
+                      src={`https://image.tmdb.org/t/p/w500/${filme.backdrop_path}`}
                     />
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
+                    <Card.Body>
+                      <Card.Title>{`${filme.original_title}`}</Card.Title>
+                      <Card.Text>{`${filme.overview}`}</Card.Text>
+                      <ModalShow
+                        name={`${filme.original_title}`}
+                        image={`${filme.backdrop_path}`}
+                        content={`${filme.overview}`}
+                      />
+                    </Card.Body>
+                  </Card>
+                </Col>
+              )
+            )}
           </Row>
         );
       });

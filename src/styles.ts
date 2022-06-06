@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     color: #fff;
   }
+  div.offcanvas {
+    background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  }
 `;
 
 export const Background1 = styled.div`

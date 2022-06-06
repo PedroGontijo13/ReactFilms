@@ -11,6 +11,7 @@ import {
   Col,
   Carousel,
   Modal,
+  Container,
 } from "react-bootstrap";
 import { Link } from "react-scroll";
 import { Background1, Background2 } from "../styles";
@@ -68,7 +69,8 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
 
   return (
     <header className="sticky-top">
-      <Navbar bg="dark" className="bg-dark" variant="dark" expand={false}>
+      <Container fluid>
+        <Navbar bg="dark" className="bg-dark" variant="dark" expand={false}>
           <Navbar.Brand href="#">
             <img
               alt="ReactLogo"
@@ -80,16 +82,10 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
             ReactFilms
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <Navbar.Offcanvas
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-            placement="top"
-          >
+          <Navbar.Offcanvas placement="top">
             <Background1>
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id="offcanvasNavbarLabel">
-                  ReactMovies
-                </Offcanvas.Title>
+                <Offcanvas.Title>ReactMovies</Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -143,18 +139,19 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
               </Offcanvas.Body>
             </Background1>
           </Navbar.Offcanvas>
-      </Navbar>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        {movie}
-        <Button variant="light" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal>
+        </Navbar>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          {movie}
+          <Button variant="light" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal>
+      </Container>
     </header>
   );
 }

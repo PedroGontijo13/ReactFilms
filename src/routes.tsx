@@ -15,6 +15,6 @@ export function AppRoutes() {
   );
 }
 
-function onFormSubmit(data: any) {
-  console.log(data.query);
+function onFormSubmit(data: string) {
+  return 0
 }
