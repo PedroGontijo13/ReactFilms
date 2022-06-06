@@ -6,12 +6,6 @@ export const GlobalStyle = createGlobalStyle`
     background: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
     color: #fff;
   }
-  a {
-    color: #fff;
-  }
-  a:hover {
-    color: #4d4d4d;
-  }
 `;
 
 export const Background1 = styled.div`
@@ -34,6 +28,12 @@ export const IconsArea = styled.div`
 `;
 
 export const FooterArea = styled.div`
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #4d4d4d;
+  }
   @media only screen and (min-width: 4000px) {
     padding-top: 10rem;
   }

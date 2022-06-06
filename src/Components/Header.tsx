@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import {
-  Container,
   Navbar,
   Offcanvas,
   Nav,
@@ -26,18 +25,24 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const getMovie = (data: {query: string}) => {
+  const getMovie = (data: { query: string }) => {
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=${data.query}`
       )
-      .then((response: {data: {results: []}}) => {
+      .then((response: { data: { results: [] } }) => {
         return setMovie(
           <Background2>
             <Carousel>
-              {response.data.results
-                .slice(0, 3)
-                .map((filme: {backdrop_path: string, original_title: string, overview: string}, id: number) => (
+              {response.data.results.slice(0, 3).map(
+                (
+                  filme: {
+                    backdrop_path: string;
+                    original_title: string;
+                    overview: string;
+                  },
+                  id: number
+                ) => (
                   <Carousel.Item key={id} interval={1000}>
                     <Col>
                       <Card.Img
@@ -53,7 +58,8 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                       </Card.Body>
                     </Col>
                   </Carousel.Item>
-                ))}
+                )
+              )}
             </Carousel>
           </Background2>
         );
@@ -63,7 +69,6 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
   return (
     <header className="sticky-top">
       <Navbar bg="dark" className="bg-dark" variant="dark" expand={false}>
-        <Container fluid>
           <Navbar.Brand href="#">
             <img
               alt="ReactLogo"
@@ -74,73 +79,70 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
             />{" "}
             ReactFilms
           </Navbar.Brand>
-            <Navbar.Toggle aria-controls="offcanvasNavbar" />
-            <Navbar.Offcanvas bg="dark"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-              placement="end"
-            >
-              <Background1>
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id="offcanvasNavbarLabel">
-                    ReactMovies
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link href="#action1">
-                      <Link
-                        activeClass="active"
-                        to="Home"
-                        spy={true}
-                        smooth={true}
-                      >
-                        Home
-                      </Link>
-                    </Nav.Link>
-                    <Nav.Link href="#action2">
-                      <Link
-                        activeClass="active"
-                        to="About"
-                        spy={true}
-                        smooth={true}
-                      >
-                        About
-                      </Link>
-                    </Nav.Link>
-                  </Nav>
-                  <Form
-                    className="d-flex"
-                    onSubmit={(
-                      event: React.FormEvent<HTMLFormElement>
-                    ): void => {
-                      event.preventDefault();
-                      onFormSubmit({ query });
-                      getMovie({ query });
-                    }}
-                  >
-                    <FormControl
-                      value={query}
-                      onChange={(event) => {
-                        setQuery(event.target.value);
-                      }}
-                      type="search"
-                      placeholder="Search"
-                      className="me-2"
-                      aria-label="Search"
-                    />
-                    <Button
-                      variant="outline-primary"
-                      type="submit"
-                      onClick={handleShow}
+          <Navbar.Toggle aria-controls="offcanvasNavbar" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+            placement="top"
+          >
+            <Background1>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id="offcanvasNavbarLabel">
+                  ReactMovies
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="#action1">
+                    <Link
+                      activeClass="active"
+                      to="Home"
+                      spy={true}
+                      smooth={true}
                     >
-                      Search
-                    </Button>
-                  </Form>
-                </Offcanvas.Body>
-              </Background1>
-            </Navbar.Offcanvas>
-        </Container>
+                      Home
+                    </Link>
+                  </Nav.Link>
+                  <Nav.Link href="#action2">
+                    <Link
+                      activeClass="active"
+                      to="About"
+                      spy={true}
+                      smooth={true}
+                    >
+                      About
+                    </Link>
+                  </Nav.Link>
+                </Nav>
+                <Form
+                  className="d-flex"
+                  onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {
+                    event.preventDefault();
+                    onFormSubmit({ query });
+                    getMovie({ query });
+                  }}
+                >
+                  <FormControl
+                    value={query}
+                    onChange={(event) => {
+                      setQuery(event.target.value);
+                    }}
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button
+                    variant="outline-primary"
+                    type="submit"
+                    onClick={handleShow}
+                  >
+                    Search
+                  </Button>
+                </Form>
+              </Offcanvas.Body>
+            </Background1>
+          </Navbar.Offcanvas>
       </Navbar>
       <Modal
         show={show}
