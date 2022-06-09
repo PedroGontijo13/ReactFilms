@@ -1,15 +1,25 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
+import { PositionRigth } from "../styles";
 import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
+  const [value, setValue] = useState<string>('');
 
-  const getMovie = () => {
+  const handleSelect=(e: any)=>{
+    console.log(e);
+    setValue(e)
+  }
+
+  const getMovie = (data: { name: string }) => {
+    if (data.name == null || data.name == "") {
+      data.name = "fight"
+    }
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=fight`
+        `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=${data.name}`
       )
       .then((response: { data: { results: [] } }) => {
         return setMovie(
@@ -51,13 +61,29 @@ export default function SuggestMovies() {
   };
 
   useEffect(() => {
-    getMovie();
-  }, []);
+    getMovie({ name: value });
+  }, [value]);
 
   return (
     <Container>
       <Row>
-        <h1>Fight Movies:</h1>
+        <Col md={6}>
+          <h1>Suggested Movies:</h1>
+        </Col>
+        <Col md={6}>
+          <PositionRigth>
+            <DropdownButton
+              variant="secondary"
+              title="Dropdown"
+              id="input-group-dropdown-1"
+              onSelect={handleSelect}
+            >
+              <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">Cars</Dropdown.Item>
+              <Dropdown.Item href="#" eventKey="Figth" value="Figths">Figths</Dropdown.Item>
+              <Dropdown.Item href="#" eventKey="Love" value="Love">Love</Dropdown.Item>
+            </DropdownButton>
+          </PositionRigth>
+        </Col>
       </Row>
       {movie}
     </Container>

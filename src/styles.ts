@@ -15,9 +15,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const CenterArea = styled.div`
-
-`
+export const PositionRigth = styled.div`
+  text-align: center;
+  @media only screen and (min-width: 767px) {
+    display: inline;
+    float: right;
+  }
+`;
 
 export const Background1 = styled.div`
   background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
