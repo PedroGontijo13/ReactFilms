@@ -79,7 +79,7 @@ export default function SuggestMovies() {
               onSelect={handleSelect}
             >
               <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">Cars</Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Figth" value="Figths">Figths</Dropdown.Item>
+              <Dropdown.Item href="#" eventKey="Fight" value="Figths">Figths</Dropdown.Item>
               <Dropdown.Item href="#" eventKey="Love" value="Love">Love</Dropdown.Item>
             </DropdownButton>
           </PositionRigth>
