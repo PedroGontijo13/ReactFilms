@@ -14,7 +14,7 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-scroll";
-import { Background1, Background2 } from "../styles";
+import { Background1, Background2 } from "../css/styles";
 import logo from "../assets/logo.png";
 
 export default function Header({ onFormSubmit }: any): JSX.Element {

@@ -1,5 +1,5 @@
 import { Carousel, Col, Container, Image } from "react-bootstrap";
-import { ContentArea, HideArea } from "../styles";
+import { ContentArea, HideArea } from "../css/styles";
 
 type IconProps = {
   text: string;

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
 import Header from "./Components/Header";
-import {GlobalStyle} from "./styles"
+import {GlobalStyle} from "./css/styles"
 
 export function AppRoutes() {
   return (

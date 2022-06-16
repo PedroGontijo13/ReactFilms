@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
 import { Card, Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
-import { PositionRigth } from "../styles";
+import { CenterSM, PositionRigth } from "../css/styles";
 import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
@@ -63,7 +63,9 @@ export default function SuggestMovies() {
     <Container>
       <Row>
         <Col md={6}>
-          <h1>Suggested Movies:</h1>
+          <CenterSM>
+            <h1>Suggested Movies:</h1>
+          </CenterSM>
         </Col>
         <Col md={6}>
           <PositionRigth>

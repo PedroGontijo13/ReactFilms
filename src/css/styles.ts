@@ -15,6 +15,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const CenterSM = styled.div`
+  text-align: center;
+  @media only screen and (min-width: 767px) {
+    display: inline;
+    float: left;
+  }
+`;
+
 export const PositionRigth = styled.div`
   text-align: center;
   @media only screen and (min-width: 767px) {

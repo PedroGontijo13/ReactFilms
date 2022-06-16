@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { IconContext } from "react-icons";
 import { SiLinkedin, SiInstagram, SiGithub } from "react-icons/si";
-import { Footer1, FooterArea, IconsArea } from "../styles";
+import { Footer1, FooterArea, IconsArea } from "../css/styles";
 
 export default function Footer() {
   return (
