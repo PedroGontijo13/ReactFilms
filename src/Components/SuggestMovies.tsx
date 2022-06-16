@@ -6,10 +6,9 @@ import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>('car');
 
   const handleSelect=(e: any)=>{
-    console.log(e);
     setValue(e)
   }
 
@@ -74,13 +73,13 @@ export default function SuggestMovies() {
           <PositionRigth>
             <DropdownButton
               variant="secondary"
-              title="Dropdown"
+              title={value}
               id="input-group-dropdown-1"
               onSelect={handleSelect}
             >
               <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">Cars</Dropdown.Item>
               <Dropdown.Item href="#" eventKey="Fight" value="Figths">Figths</Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Love" value="Love">Love</Dropdown.Item>
+              <Dropdown.Item href="#" eventKey="Love" value="Loves">Love</Dropdown.Item>
             </DropdownButton>
           </PositionRigth>
         </Col>
