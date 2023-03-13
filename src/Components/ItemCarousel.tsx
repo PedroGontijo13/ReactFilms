@@ -1,4 +1,4 @@
-import { Carousel, Col, Container, Image } from "react-bootstrap";
+import { Carousel, Col, Image, Container} from "react-bootstrap";
 import { ContentArea, HideArea } from "../css/styles";
 
 type IconProps = {
@@ -8,6 +8,7 @@ type IconProps = {
 };
 
 export default function ItemCarousel(props: IconProps) {
+  
   return (
     <Container fluid>
       <Col sm={12} md={12}>
