@@ -13,7 +13,7 @@ export default function ItemCarousel(props: IconProps) {
       <Col sm={12} md={12}>
         <Image
           fluid
-          style={{minHeight: "350px", maxHeight: "1000px"}}
+          style={{minHeight: "350px", maxHeight: "750px"}}
           className="w-100 p-3"
           src={`https://image.tmdb.org/t/p/w500/${props.srcImg}`}
           alt="First slide"
