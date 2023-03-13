@@ -9,13 +9,11 @@ import SuggestMovies from "../Components/SuggestMovies";
 export default function MainPage() {
   return (
     <div>
-      <Container>
-        <Banner />
-        <SuggestMovies />
-        <Avaliations />
-        <MakingOf />
-        <News />
-      </Container>
+      <Banner />
+      <SuggestMovies />
+      <Avaliations />
+      <MakingOf />
+      <News />
       <Footer />
     </div>
   );

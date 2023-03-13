@@ -1,4 +1,4 @@
-import { Carousel } from "react-bootstrap";
+import { Carousel, Container } from "react-bootstrap";
 import ItemCarousel from "./ItemCarousel";
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
@@ -41,5 +41,11 @@ export default function Banner() {
     getMovie();
   }, []);
 
-  return <div id="Home">{movie}</div>;
+  return (
+    <div>
+      <Container className="bg-secondary" fluid id="Home">
+        {movie}
+      </Container>
+    </div>
+  );
 }

@@ -68,8 +68,8 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
   };
 
   return (
-    <header className="sticky-top">
-      <Container fluid>
+    <Container fluid>
+      <header className="sticky-top">
         <Navbar bg="dark" className="bg-dark" variant="dark" expand={false}>
           <Navbar.Brand href="#">
             <img
@@ -151,7 +151,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
             Close
           </Button>
         </Modal>
-      </Container>
-    </header>
+      </header>
+    </Container>
   );
 }

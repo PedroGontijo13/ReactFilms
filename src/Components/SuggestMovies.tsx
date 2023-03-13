@@ -1,16 +1,23 @@
 import axios from "axios";
 import { ReactElement, useEffect, useState } from "react";
-import { Card, Col, Container, Dropdown, DropdownButton, Row } from "react-bootstrap";
-import { CenterSM, PositionRigth } from "../css/styles";
+import {
+  Card,
+  Col,
+  Container,
+  Dropdown,
+  DropdownButton,
+  Row,
+} from "react-bootstrap";
+import { CenterSM, PositionRigth, SpaceBetween } from "../css/styles";
 import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
-  const [value1, setValue] = useState<string | null>('car');
+  const [value1, setValue] = useState<string | null>("Car");
 
   const getMovie = (data: { name: string | null }) => {
     if (data.name == null || data.name == "") {
-      data.name = "fight"
+      data.name = "fight";
     }
     axios
       .get(
@@ -19,7 +26,7 @@ export default function SuggestMovies() {
       .then((response: { data: { results: [] } }) => {
         return setMovie(
           <Row>
-            {response.data.results.slice(0, 4).map(
+            {response.data.results.slice(0, 2).map(
               (
                 filme: {
                   original_title: string;
@@ -61,26 +68,37 @@ export default function SuggestMovies() {
 
   return (
     <Container>
-      <Row>
-        <Col md={6}>
-          <CenterSM>
-            <h1>Suggested Movies:</h1>
-          </CenterSM>
-        </Col>
-        <Col md={6}>
-          <PositionRigth>
-            <DropdownButton
-              variant="secondary"
-              title={value1}
-              id="input-group-dropdown-1"
-              onSelect={(eventKey: string | null, e: React.SyntheticEvent<unknown>) => setValue(eventKey)}
-            >
-              <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">Cars</Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Fight" value="Figths">Figths</Dropdown.Item>
-              <Dropdown.Item href="#" eventKey="Love" value="Loves">Love</Dropdown.Item>
-            </DropdownButton>
-          </PositionRigth>
-        </Col>
+      <Row style={{ margin: "3% 0" }}>
+        <SpaceBetween>
+          <Col sm={6}>
+            <CenterSM>
+              <h1>Suggested Movies:</h1>
+            </CenterSM>
+          </Col>
+          <Col sm={6}>
+            <PositionRigth>
+              <DropdownButton
+                variant="secondary"
+                title={value1 || "Default"}
+                id="input-group-dropdown-1"
+                onSelect={(
+                  eventKey: string | null,
+                  e: React.SyntheticEvent<unknown>
+                ) => setValue(eventKey)}
+              >
+                <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">
+                  Cars
+                </Dropdown.Item>
+                <Dropdown.Item href="#" eventKey="Fight Club" value="Figths">
+                  Figths
+                </Dropdown.Item>
+                <Dropdown.Item href="#" eventKey="Love" value="Loves">
+                  Love
+                </Dropdown.Item>
+              </DropdownButton>
+            </PositionRigth>
+          </Col>
+        </SpaceBetween>
       </Row>
       {movie}
     </Container>

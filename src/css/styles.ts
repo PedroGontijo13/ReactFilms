@@ -85,3 +85,8 @@ export const HideArea = styled.p`
     height: auto;
   }
 `;
+
+export const SpaceBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
