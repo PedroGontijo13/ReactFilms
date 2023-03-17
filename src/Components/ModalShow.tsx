@@ -1,18 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import axios from "axios";
 
 type ModalProps = {
   name: string;
   image: string;
   content: string;
-  rating: number
+  rating: number;
+  id: number;
+};
+
+type Video = {
+  key: string;
 };
 
 export default function ModalShow(props: ModalProps) {
   const [show, setShow] = useState(false);
+  const [videos, setVideos] = useState<Video[]>([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    axios
+      .get<{ results: Video[] }>(
+        `https://api.themoviedb.org/3/movie/${props.id}/videos`,
+        {
+          params: {
+            api_key: "31742746c6e9901fb3322e0a9d7dddb2",
+          },
+        }
+      )
+      .then((response) => setVideos(response.data.results))
+      .catch((error) => console.log(error));
+  }, [props.id]);
 
   return (
     <div>
@@ -42,6 +63,20 @@ export default function ModalShow(props: ModalProps) {
             ))}
             {Array.from({ length: 5 - props.rating }, (_, index) => (
               <span key={index + props.rating}>&#9734;</span>
+            ))}
+            <br />
+            <br />
+            <h4>Watch the trailer:</h4>
+            {videos.map((video) => (
+              <div key={video.key}>
+                <a
+                  href={`https://www.youtube.com/watch?v=${video.key}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {video.key}
+                </a>
+              </div>
             ))}
           </Modal.Body>
           <Modal.Footer>

@@ -27,7 +27,8 @@ export default function SuggestMovies() {
           <Row>
             {response.data.results.slice(0, 2).map(
               (
-                filme: {
+                movie: {
+                  id: number;
                   original_title: string;
                   overview: string;
                   backdrop_path: string;
@@ -43,18 +44,19 @@ export default function SuggestMovies() {
                     <Card.Img
                       variant="top"
                       src={
-                        `https://image.tmdb.org/t/p/w500/${filme.backdrop_path}` ??
+                        `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` ??
                         Bond
                       }
                     />
                     <Card.Body>
-                      <Card.Title>{`${filme.original_title}`}</Card.Title>
-                      <Card.Text>{`${filme.overview}`}</Card.Text>
+                      <Card.Title>{`${movie.original_title}`}</Card.Title>
+                      <Card.Text>{`${movie.overview}`}</Card.Text>
                       <ModalShow
-                        rating={filme.vote_average}
-                        name={`${filme.original_title}`}
-                        image={`${filme.backdrop_path}`}
-                        content={`${filme.overview}`}
+                        id={movie.id}
+                        rating={movie.vote_average}
+                        name={`${movie.original_title}`}
+                        image={`${movie.backdrop_path}`}
+                        content={`${movie.overview}`}
                       />
                     </Card.Body>
                   </Card>
