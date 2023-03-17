@@ -35,6 +35,10 @@ export default function ModalShow(props: ModalProps) {
       .catch((error) => console.log(error));
   }, [props.id]);
 
+  const handleWatch = () => {
+    window.location.href = `https://api.themoviedb.org/3/movie/${props.id}/watch/providers?api_key=31742746c6e9901fb3322e0a9d7dddb2`;
+  };
+
   return (
     <div>
       <Button variant="light" onClick={handleShow}>
@@ -78,6 +82,10 @@ export default function ModalShow(props: ModalProps) {
                 </a>
               </div>
             ))}
+            <br />
+            <Button variant="primary" onClick={handleWatch}>
+              Watch now
+            </Button>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

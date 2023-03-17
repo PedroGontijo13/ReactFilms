@@ -110,6 +110,9 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                   <Nav.Link href="/" style={{ color: "white" }}>
                     Home
                   </Nav.Link>
+                  <Nav.Link href="/movies" style={{ color: "white" }}>
+                    All movies
+                  </Nav.Link>
                   <Nav.Link href="/about">
                     <div style={{ color: "white" }}>About</div>
                   </Nav.Link>

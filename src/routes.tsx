@@ -3,6 +3,7 @@ import MainPage from "./Pages/MainPage";
 import Header from "./Components/Header";
 import {GlobalStyle} from "./css/styles"
 import About from "./Pages/About";
+import AllMovies from "./Pages/AllMovies";
 
 export function AppRoutes() {
   return (
@@ -14,6 +15,9 @@ export function AppRoutes() {
       </Routes>
       <Routes>
         <Route path="/about" element={<About />} />
+      </Routes>
+      <Routes>
+        <Route path="/movies" element={<AllMovies/>} />
       </Routes>
     </Router>
   );
