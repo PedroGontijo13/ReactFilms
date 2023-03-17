@@ -89,4 +89,11 @@ export const HideArea = styled.p`
 export const SpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
+
+export const TitleColor = styled.div`
+  background: #0eb5cf;
+  background: linear-gradient(to right, #0eb5cf 32%, #1313cf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;

@@ -32,6 +32,7 @@ export default function SuggestMovies() {
                   original_title: string;
                   overview: string;
                   backdrop_path: string;
+                  vote_average: number
                 },
                 id: number
               ) => (
@@ -48,6 +49,7 @@ export default function SuggestMovies() {
                       <Card.Title>{`${filme.original_title}`}</Card.Title>
                       <Card.Text>{`${filme.overview}`}</Card.Text>
                       <ModalShow
+                      rating={filme.vote_average}
                         name={`${filme.original_title}`}
                         image={`${filme.backdrop_path}`}
                         content={`${filme.overview}`}

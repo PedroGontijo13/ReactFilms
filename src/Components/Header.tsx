@@ -13,9 +13,9 @@ import {
   Modal,
   Container,
 } from "react-bootstrap";
-import { Link } from "react-scroll";
-import { Background1, Background2 } from "../css/styles";
+import { Background1, Background2, TitleColor } from "../css/styles";
 import logo from "../assets/logo.png";
+import Bond from "../assets/bond.webp"
 
 export default function Header({ onFormSubmit }: any): JSX.Element {
   const [query, setQuery] = useState("");
@@ -41,6 +41,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                     backdrop_path: string;
                     original_title: string;
                     overview: string;
+                    vote_average: number;
                   },
                   id: number
                 ) => (
@@ -49,13 +50,26 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                       <Card.Img
                         variant="top"
                         src={
+                          filme.backdrop_path ?
                           "https://image.tmdb.org/t/p/w500/" +
-                          filme.backdrop_path
+                          filme.backdrop_path : Bond
                         }
                       />
                       <Card.Body>
                         <Card.Title>{filme.original_title}</Card.Title>
-                        <Card.Text>{filme.overview}</Card.Text>
+                        <Card.Text>
+                          {filme.overview}
+                          <br />
+                          {Array.from({ length: filme.vote_average }, (_, index) => (
+                            <span key={index}>&#9733;</span>
+                          ))}
+                          {Array.from(
+                            { length: 5 - filme.vote_average },
+                            (_, index) => (
+                              <span key={index + filme.vote_average}>&#9734;</span>
+                            )
+                          )}
+                        </Card.Text>
                       </Card.Body>
                     </Col>
                   </Carousel.Item>
@@ -71,43 +85,33 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
     <Container fluid>
       <header className="sticky-top">
         <Navbar bg="dark" className="bg-dark" variant="dark" expand={false}>
-          <Navbar.Brand href="#">
-            <img
-              alt="ReactLogo"
-              src={logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{" "}
-            ReactFilms
-          </Navbar.Brand>
+          <TitleColor>
+            <Navbar.Brand href="/">
+              <img
+                alt="ReactLogo"
+                src={logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{" "}
+              ReactFilms
+            </Navbar.Brand>
+          </TitleColor>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas placement="top">
             <Background1>
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title>ReactMovies</Offcanvas.Title>
+              <Offcanvas.Header closeButton closeVariant="white">
+                <TitleColor>
+                  <Offcanvas.Title>ReactFilmes</Offcanvas.Title>
+                </TitleColor>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">
-                    <Link
-                      activeClass="active"
-                      to="Home"
-                      spy={true}
-                      smooth={true}
-                    >
-                      Home
-                    </Link>
+                  <Nav.Link href="/" style={{ color: "white" }}>
+                    Home
                   </Nav.Link>
-                  <Nav.Link href="#action2">
-                    <Link
-                      activeClass="active"
-                      to="About"
-                      spy={true}
-                      smooth={true}
-                    >
-                      About
-                    </Link>
+                  <Nav.Link href="/about">
+                    <div style={{ color: "white" }}>About</div>
                   </Nav.Link>
                 </Nav>
                 <Form
@@ -128,11 +132,7 @@ export default function Header({ onFormSubmit }: any): JSX.Element {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button
-                    variant="outline-primary"
-                    type="submit"
-                    onClick={handleShow}
-                  >
+                  <Button variant="light" type="submit" onClick={handleShow}>
                     Search
                   </Button>
                 </Form>

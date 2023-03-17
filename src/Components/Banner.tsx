@@ -20,11 +20,13 @@ export default function Banner() {
                   backdrop_path: string;
                   original_title: string;
                   overview: string;
+                  vote_average: number
                 },
                 id: number
               ) => (
                 <Carousel.Item key={id} interval={2000}>
                   <ItemCarousel
+                    rating={filme.vote_average}
                     srcImg={`${filme.backdrop_path}`}
                     name={`${filme.original_title}`}
                     text={`${filme.overview}`}
