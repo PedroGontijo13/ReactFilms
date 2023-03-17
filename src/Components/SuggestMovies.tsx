@@ -10,13 +10,14 @@ import {
 } from "react-bootstrap";
 import { CenterSM, PositionRigth, SpaceBetween } from "../css/styles";
 import ModalShow from "./ModalShow";
+import Bond from "../assets/bond.webp";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
   const [value1, setValue] = useState<string | null>("Friday");
 
   const getMovie = (data: { name: string | null }) => {
-    data.name ?? data.name == 'Friday'
+    data.name ?? data.name == "Friday";
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=${data.name}`
@@ -30,7 +31,7 @@ export default function SuggestMovies() {
                   original_title: string;
                   overview: string;
                   backdrop_path: string;
-                  vote_average: number
+                  vote_average: number;
                 },
                 id: number
               ) => (
@@ -41,13 +42,16 @@ export default function SuggestMovies() {
                   >
                     <Card.Img
                       variant="top"
-                      src={`https://image.tmdb.org/t/p/w500/${filme.backdrop_path}`}
+                      src={
+                        `https://image.tmdb.org/t/p/w500/${filme.backdrop_path}` ??
+                        Bond
+                      }
                     />
                     <Card.Body>
                       <Card.Title>{`${filme.original_title}`}</Card.Title>
                       <Card.Text>{`${filme.overview}`}</Card.Text>
                       <ModalShow
-                      rating={filme.vote_average}
+                        rating={filme.vote_average}
                         name={`${filme.original_title}`}
                         image={`${filme.backdrop_path}`}
                         content={`${filme.overview}`}
@@ -86,7 +90,12 @@ export default function SuggestMovies() {
                   e: React.SyntheticEvent<unknown>
                 ) => setValue(eventKey)}
               >
-                <Dropdown.Item href="#" eventKey="Friday" name="Friday" value="Friday">
+                <Dropdown.Item
+                  href="#"
+                  eventKey="Friday"
+                  name="Friday"
+                  value="Friday"
+                >
                   Friday
                 </Dropdown.Item>
                 <Dropdown.Item href="#" eventKey="Fight Club" value="Figths">
