@@ -13,12 +13,10 @@ import ModalShow from "./ModalShow";
 
 export default function SuggestMovies() {
   const [movie, setMovie] = useState<ReactElement<HTMLDivElement>>();
-  const [value1, setValue] = useState<string | null>("Car");
+  const [value1, setValue] = useState<string | null>("Friday");
 
   const getMovie = (data: { name: string | null }) => {
-    if (data.name == null || data.name == "") {
-      data.name = "fight";
-    }
+    data.name ?? data.name == 'Friday'
     axios
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=31742746c6e9901fb3322e0a9d7dddb2&query=${data.name}`
@@ -88,8 +86,8 @@ export default function SuggestMovies() {
                   e: React.SyntheticEvent<unknown>
                 ) => setValue(eventKey)}
               >
-                <Dropdown.Item href="#" eventKey="Car" name="Cars" value="Cars">
-                  Cars
+                <Dropdown.Item href="#" eventKey="Friday" name="Friday" value="Friday">
+                  Friday
                 </Dropdown.Item>
                 <Dropdown.Item href="#" eventKey="Fight Club" value="Figths">
                   Figths
