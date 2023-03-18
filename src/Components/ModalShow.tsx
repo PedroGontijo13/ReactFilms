@@ -83,7 +83,7 @@ export default function ModalShow(props: ModalProps) {
               </div>
             ))}
             <br />
-            <Button variant="primary" onClick={handleWatch}>
+            <Button variant="light" onClick={handleWatch}>
               Watch now
             </Button>
           </Modal.Body>
