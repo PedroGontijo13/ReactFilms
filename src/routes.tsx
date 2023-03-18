@@ -12,11 +12,7 @@ export function AppRoutes() {
       <Header onFormSubmit={onFormSubmit} />
       <Routes>
         <Route path="/" element={<MainPage />} />
-      </Routes>
-      <Routes>
         <Route path="/about" element={<About />} />
-      </Routes>
-      <Routes>
         <Route path="/movies" element={<AllMovies/>} />
       </Routes>
     </Router>
