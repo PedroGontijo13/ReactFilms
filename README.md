@@ -1,5 +1,7 @@
 # MoviesPageReact
 
+Deployed page: https://react-filmes-project.netlify.app
+
 React Films is a film portal that will provide information about films and the films themselves. Developed by computer science and web development student: Pedro Tolentino Gontijo
 
 Maked with ReactJS, ViteJS, TypeScript, ReactBootsrap, ReactIcons, React-Router-Dom, React-Scroll and Styled-Components.
