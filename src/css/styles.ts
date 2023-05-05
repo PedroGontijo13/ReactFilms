@@ -15,6 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const CenterP = styled.div`
+  text-align: center;
+  font-size: 30px;
+  padding: 50% 0%;
+`;
+
 export const CenterSM = styled.div`
   text-align: center;
   @media only screen and (min-width: 767px) {

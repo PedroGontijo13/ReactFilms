@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
 import ModalShow from "./ModalShow";
 import Bond from "../assets/bond.webp";
+import { CenterP } from "../css/styles";
 
 interface Movie {
   id: number;
@@ -34,11 +35,14 @@ export default function MovieList() {
       .catch((error) => console.log(error));
 
     axios
-      .get<{ genres: Genre[] }>("https://api.themoviedb.org/3/genre/movie/list", {
-        params: {
-          api_key: "31742746c6e9901fb3322e0a9d7dddb2",
-        },
-      })
+      .get<{ genres: Genre[] }>(
+        "https://api.themoviedb.org/3/genre/movie/list",
+        {
+          params: {
+            api_key: "31742746c6e9901fb3322e0a9d7dddb2",
+          },
+        }
+      )
       .then((response) => setGenres(response.data.genres))
       .catch((error) => console.log(error));
   }, []);
@@ -55,7 +59,9 @@ export default function MovieList() {
           {genres.map((genre) => (
             <Button
               key={genre.id}
-              variant={selectedGenre === genre.id ? "secondary" : "outline-secondary"}
+              variant={
+                selectedGenre === genre.id ? "secondary" : "outline-secondary"
+              }
               onClick={() => handleGenreSelection(genre.id)}
               style={{ margin: "5px 10px" }}
             >
@@ -64,15 +70,19 @@ export default function MovieList() {
           ))}
         </Col>
         {movies
-          .filter((movie) => selectedGenre === null || movie.genre_ids.includes(selectedGenre))
+          .filter(
+            (movie) =>
+              selectedGenre === null || movie.genre_ids.includes(selectedGenre)
+          )
           .map((movie) => (
             <Col md={6} key={movie.id} style={{ marginTop: "10px" }}>
               <Card bg="secondary" style={{ height: "100%", padding: "10px" }}>
                 <Card.Img
                   variant="top"
                   src={
-                    `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` ??
-                    Bond
+                    movie.backdrop_path
+                      ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+                      : Bond
                   }
                 />
                 <Card.Body>
@@ -89,6 +99,9 @@ export default function MovieList() {
               </Card>
             </Col>
           ))}
+        {selectedGenre !== null &&
+          movies.filter((movie) => movie.genre_ids.includes(selectedGenre))
+            .length === 0 && <CenterP>Sorry, no movies found for this genre.</CenterP>}
       </Row>
     </Container>
   );
